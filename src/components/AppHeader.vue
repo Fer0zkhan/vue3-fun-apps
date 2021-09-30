@@ -82,6 +82,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
               <router-link
+                v-for="item in routerList"
                 class="
                   text-gray-300
                   hover:bg-gray-700
@@ -92,23 +93,24 @@
                   text-sm
                   font-medium
                 "
-                to="/"
-                >Calendar</router-link
+                :key="item.to"
+                :to="item.to"
+                >{{ item.title }}</router-link
               >
-              <router-link
+              <button
                 class="
-                  text-gray-300
-                  hover:bg-gray-700
-                  hover:text-white
+                  bg-gray-700
+                  text-white
                   px-3
                   py-2
                   rounded-md
                   text-sm
                   font-medium
                 "
-                to="/user-api"
-                >User Api</router-link
+                @click="$emit('open-login-modal');"
               >
+                Login
+              </button>
             </div>
           </div>
         </div>
@@ -123,6 +125,7 @@
     >
       <div class="px-2 pt-2 pb-3 space-y-1">
         <router-link
+          v-for="item in routerList"
           class="
             text-gray-300
             hover:bg-gray-700
@@ -134,14 +137,14 @@
             text-base
             font-medium
           "
-          to="/"
-          >Calendar</router-link
+          :key="item.to"
+          :to="item.to"
+          >{{ item.title }}</router-link
         >
-        <router-link
+        <button
           class="
-            text-gray-300
-            hover:bg-gray-700
-            hover:text-white
+            bg-gray-700
+            text-white
             block
             px-3
             py-2
@@ -149,9 +152,10 @@
             text-base
             font-medium
           "
-          to="/user-api"
-          >User Api</router-link
+          @click="$emit('open-login-modal');"
         >
+          Login
+        </button>
       </div>
     </div>
   </nav>
@@ -162,6 +166,12 @@ export default {
   data() {
     return {
       showMenu: false,
+      routerList: [
+        { title: "Calendar", to: "/" },
+        { title: "User Api", to: "/user-api" },
+        { title: "Markdown", to: "/markdown" },
+        { title: "Slider", to: "/slider" },
+      ],
     };
   },
   methods: {
