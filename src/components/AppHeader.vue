@@ -97,20 +97,6 @@
                 :to="item.to"
                 >{{ item.title }}</router-link
               >
-              <button
-                class="
-                  bg-gray-700
-                  text-white
-                  px-3
-                  py-2
-                  rounded-md
-                  text-sm
-                  font-medium
-                "
-                @click="$emit('open-login-modal');"
-              >
-                Login
-              </button>
             </div>
           </div>
         </div>
@@ -141,21 +127,6 @@
           :to="item.to"
           >{{ item.title }}</router-link
         >
-        <button
-          class="
-            bg-gray-700
-            text-white
-            block
-            px-3
-            py-2
-            rounded-md
-            text-base
-            font-medium
-          "
-          @click="$emit('open-login-modal');"
-        >
-          Login
-        </button>
       </div>
     </div>
   </nav>
@@ -167,10 +138,14 @@ export default {
     return {
       showMenu: false,
       routerList: [
-        { title: "Calendar", to: "/" },
+        { title: "Home", to: "/" },
+        { title: "Calendar", to: "/calendar" },
         { title: "User Api", to: "/user-api" },
         { title: "Markdown", to: "/markdown" },
         { title: "Slider", to: "/slider" },
+        { title: "Calculator", to: "/calculator" },
+        { title: "Modal", to: "/re-usable-modal" },
+        { title: "User Crud", to: "/user-crud" },
       ],
     };
   },
